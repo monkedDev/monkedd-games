@@ -1,0 +1,243 @@
+/* ==================== КАРАКУЛИ И ПОЧЁРКУШКИ ==================== */
+/* Стиль: неаккуратные рисованные элементы от руки */
+
+/* ------------ Фоновые каракули ------------ */
+.scribbles-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.scribbles-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        /* Волнистые линии */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cpath d='M10,50 Q40,20 70,50 T130,50 T190,50 T250,50' stroke='rgba(44,44,44,0.06)' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M10,100 Q50,60 90,100 T170,100 T250,100' stroke='rgba(40,167,69,0.05)' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M20,150 Q60,110 100,150 T180,150 T260,150' stroke='rgba(32,201,151,0.05)' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"),
+        /* Кружочки и точки */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='30' cy='40' r='4' fill='rgba(44,44,44,0.08)'/%3E%3Ccircle cx='80' cy='70' r='3' fill='rgba(40,167,69,0.1)'/%3E%3Ccircle cx='140' cy='30' r='5' fill='rgba(32,201,151,0.08)'/%3E%3Ccircle cx='170' cy='120' r='3' fill='rgba(44,44,44,0.07)'/%3E%3Ccircle cx='50' cy='150' r='4' fill='rgba(40,167,69,0.09)'/%3E%3C/svg%3E"),
+        /* Звёздочки */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cpath d='M50,30 L55,45 L70,45 L58,55 L63,70 L50,60 L37,70 L42,55 L30,45 L45,45 Z' fill='rgba(44,44,44,0.06)'/%3E%3Cpath d='M150,80 L154,92 L166,92 L157,100 L161,112 L150,104 L139,112 L143,100 L134,92 L146,92 Z' fill='rgba(40,167,69,0.07)'/%3E%3Cpath d='M200,150 L203,160 L213,160 L205,167 L208,177 L200,171 L192,177 L195,167 L187,160 L197,160 Z' fill='rgba(32,201,151,0.06)'/%3E%3C/svg%3E"),
+        /* Спиральки и завитки */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cpath d='M40,40 Q50,30 60,40 T80,40' stroke='rgba(44,44,44,0.05)' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M100,80 Q115,65 130,80 T160,80' stroke='rgba(40,167,69,0.05)' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M30,120 Q45,105 60,120 T90,120' stroke='rgba(32,201,151,0.05)' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 300px 300px, 200px 200px, 250px 250px, 180px 180px;
+    animation: scribblesFloat 40s ease-in-out infinite;
+}
+
+@keyframes scribblesFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(15px, -15px) scale(1.02); }
+    50% { transform: translate(-10px, 10px) scale(0.98); }
+    75% { transform: translate(12px, 8px) scale(1.01); }
+}
+
+/* ------------ Отдельные элементы каракулей ------------ */
+.scribble-element {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Волнистая линия */
+.scribble-wave {
+    width: 100px;
+    height: 30px;
+    background:
+        repeating-radial-gradient(
+            circle at 10px 10px,
+            rgba(44,44,44,0.3) 0px,
+            rgba(44,44,44,0.3) 2px,
+            transparent 2px,
+            transparent 10px
+        );
+    transform: rotate(-2deg);
+}
+
+/* Спиралька */
+.scribble-swirl {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(44,44,44,0.3);
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(45deg);
+}
+
+/* Кривой кружок */
+.scribble-circle {
+    width: 35px;
+    height: 35px;
+    border: 3px solid rgba(40,167,69,0.4);
+    border-radius: 50%;
+    border-radius: 45% 55% 50% 50%;
+    transform: rotate(-5deg);
+}
+
+/* Звёздочка */
+.scribble-star {
+    font-size: 1.2rem;
+    color: rgba(44,44,44,0.4);
+    transform: rotate(15deg);
+}
+
+/* Стрелочка */
+.scribble-arrow {
+    font-size: 1.5rem;
+    color: rgba(32,201,151,0.5);
+    transform: rotate(-30deg);
+}
+
+/* Крестик */
+.scribble-cross {
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.scribble-cross::before,
+.scribble-cross::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 3px;
+    background: rgba(44,44,44,0.3);
+    border-radius: 2px;
+}
+
+.scribble-cross::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.scribble-cross::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Галочка */
+.scribble-check {
+    font-size: 1.3rem;
+    color: rgba(40,167,69,0.6);
+    transform: rotate(-10deg);
+}
+
+/* Сердечко */
+.scribble-heart {
+    font-size: 1.2rem;
+    color: rgba(255,107,107,0.5);
+    transform: rotate(5deg);
+}
+
+/* Молния */
+.scribble-lightning {
+    font-size: 1.4rem;
+    color: rgba(255,193,7,0.6);
+    transform: rotate(-15deg);
+}
+
+/* ------------ Декоративные уголки ------------ */
+.scribble-corner-decoration {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.scribble-corner-decoration.top-left {
+    top: -10px;
+    left: -10px;
+    border-top: 4px solid rgba(44,44,44,0.3);
+    border-left: 4px solid rgba(44,44,44,0.3);
+    border-radius: 20px 0 0 0;
+    transform: rotate(-8deg);
+}
+
+.scribble-corner-decoration.top-right {
+    top: -10px;
+    right: -10px;
+    border-top: 4px solid rgba(44,44,44,0.3);
+    border-right: 4px solid rgba(44,44,44,0.3);
+    border-radius: 0 20px 0 0;
+    transform: rotate(8deg);
+}
+
+.scribble-corner-decoration.bottom-left {
+    bottom: -10px;
+    left: -10px;
+    border-bottom: 4px solid rgba(44,44,44,0.3);
+    border-left: 4px solid rgba(44,44,44,0.3);
+    border-radius: 0 0 0 20px;
+    transform: rotate(8deg);
+}
+
+.scribble-corner-decoration.bottom-right {
+    bottom: -10px;
+    right: -10px;
+    border-bottom: 4px solid rgba(44,44,44,0.3);
+    border-right: 4px solid rgba(44,44,44,0.3);
+    border-radius: 0 0 20px 0;
+    transform: rotate(-8deg);
+}
+
+/* ------------ Плавающие каракули ------------ */
+.floating-scribble {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+    animation: floatingScribbleAnim 8s ease-in-out infinite;
+}
+
+@keyframes floatingScribbleAnim {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translateY(-20px) rotate(5deg) scale(1.05);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-10px) rotate(-5deg) scale(0.95);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-25px) rotate(3deg) scale(1.02);
+        opacity: 0.45;
+    }
+}
+
+/* ------------ Инерционные каракули при движении мыши ------------ */
+.mouse-scribble {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(40,167,69,0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: mouseScribbleFade 1.5s ease-out forwards;
+}
+
+@keyframes mouseScribbleFade {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.5) rotate(180deg);
+        opacity: 0;
+    }
+}

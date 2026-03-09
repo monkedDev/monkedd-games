@@ -1,0 +1,555 @@
+/* ==================== НЕАККУРАТНЫЕ ВЫДЕЛЕНИЯ ==================== */
+/* Стиль: выделения маркером, неровные подчёркивания, кривые рамки */
+
+/* ------------ Выделения маркером ------------ */
+.highlighter {
+    position: relative;
+    display: inline-block;
+    padding: 2px 4px;
+    margin: -2px -4px;
+    z-index: 1;
+}
+
+.highlighter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,0,0.4) 0%,
+        rgba(255,255,0,0.3) 50%,
+        rgba(255,255,0,0.4) 100%
+    );
+    z-index: -1;
+    transform: rotate(-1deg) skewX(-2deg);
+    border-radius: 3px 5px 4px 6px;
+    clip-path: polygon(
+        0% 10%, 5% 5%, 10% 8%, 15% 3%, 20% 7%,
+        25% 2%, 30% 6%, 35% 1%, 40% 5%, 45% 0%,
+        50% 4%, 55% 1%, 60% 5%, 65% 2%, 70% 6%,
+        75% 3%, 80% 7%, 85% 4%, 90% 8%, 95% 5%,
+        100% 10%, 100% 90%, 95% 95%, 90% 92%, 85% 97%,
+        80% 93%, 75% 98%, 70% 94%, 65% 99%, 60% 95%,
+        55% 99%, 50% 96%, 45% 100%, 40% 95%, 35% 99%,
+        30% 94%, 25% 98%, 20% 93%, 15% 97%, 10% 92%,
+        5% 96%, 0% 90%
+    );
+}
+
+/* Жёлтый маркер */
+.highlighter-yellow::before {
+    background: linear-gradient(
+        135deg,
+        rgba(255,230,0,0.5) 0%,
+        rgba(255,255,100,0.35) 50%,
+        rgba(255,230,0,0.5) 100%
+    );
+}
+
+/* Зелёный маркер */
+.highlighter-green::before {
+    background: linear-gradient(
+        135deg,
+        rgba(100,255,100,0.5) 0%,
+        rgba(150,255,150,0.35) 50%,
+        rgba(100,255,100,0.5) 100%
+    );
+}
+
+/* Розовый маркер */
+.highlighter-pink::before {
+    background: linear-gradient(
+        135deg,
+        rgba(255,150,200,0.5) 0%,
+        rgba(255,180,220,0.35) 50%,
+        rgba(255,150,200,0.5) 100%
+    );
+}
+
+/* Голубой маркер */
+.highlighter-blue::before {
+    background: linear-gradient(
+        135deg,
+        rgba(100,200,255,0.5) 0%,
+        rgba(150,220,255,0.35) 50%,
+        rgba(100,200,255,0.5) 100%
+    );
+}
+
+/* Оранжевый маркер */
+.highlighter-orange::before {
+    background: linear-gradient(
+        135deg,
+        rgba(255,180,100,0.5) 0%,
+        rgba(255,200,150,0.35) 50%,
+        rgba(255,180,100,0.5) 100%
+    );
+}
+
+/* ------------ Неровные подчёркивания ------------ */
+.messy-underline {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.messy-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            rgba(44,44,44,0.4) 0px,
+            rgba(44,44,44,0.4) 8px,
+            transparent 8px,
+            transparent 12px
+        );
+    border-radius: 2px;
+    transform: rotate(-1deg);
+    animation: messyUnderlineWave 2s ease-in-out infinite;
+}
+
+@keyframes messyUnderlineWave {
+    0%, 100% {
+        background-position: 0px 0px;
+        transform: rotate(-1deg) scaleX(1);
+    }
+    50% {
+        background-position: 10px 0px;
+        transform: rotate(1deg) scaleX(1.02);
+    }
+}
+
+/* Волнистое подчёркивание */
+.wavy-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.wavy-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='8' viewBox='0 0 20 8'%3E%3Cpath d='M0,4 Q5,0 10,4 T20,4' stroke='rgba(44,44,44,0.5)' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 20px 8px;
+    animation: wavyUnderlineAnim 3s ease-in-out infinite;
+}
+
+@keyframes wavyUnderlineAnim {
+    0%, 100% {
+        background-position: 0px 0px;
+    }
+    50% {
+        background-position: 10px 0px;
+    }
+}
+
+/* Подчёркивание каракулями */
+.scribble-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.scribble-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='12' viewBox='0 0 30 12'%3E%3Cpath d='M0,6 Q8,0 15,6 T30,6' stroke='rgba(40,167,69,0.5)' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 30px 12px;
+}
+
+/* ------------ Неровные рамки ------------ */
+.messy-border {
+    position: relative;
+    border: 3px solid rgba(44,44,44,0.3);
+    border-radius: 25px 23px 27px 24px;
+    animation: messyBorderPulse 4s ease-in-out infinite;
+}
+
+@keyframes messyBorderPulse {
+    0%, 100% {
+        border-radius: 25px 23px 27px 24px;
+        transform: rotate(0deg);
+    }
+    25% {
+        border-radius: 23px 27px 24px 26px;
+        transform: rotate(-0.3deg);
+    }
+    50% {
+        border-radius: 27px 24px 26px 23px;
+        transform: rotate(0.3deg);
+    }
+    75% {
+        border-radius: 24px 26px 23px 27px;
+        transform: rotate(-0.2deg);
+    }
+}
+
+/* Двойная неровная рамка */
+.double-messy-border {
+    position: relative;
+    border: 3px solid rgba(44,44,44,0.3);
+    border-radius: 25px 23px 27px 24px;
+}
+
+.double-messy-border::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px solid rgba(40,167,69,0.25);
+    border-radius: 27px 24px 26px 23px;
+    pointer-events: none;
+    animation: doubleBorderWave 5s ease-in-out infinite;
+}
+
+@keyframes doubleBorderWave {
+    0%, 100% {
+        border-radius: 27px 24px 26px 23px;
+        transform: rotate(0.5deg);
+    }
+    50% {
+        border-radius: 24px 27px 23px 26px;
+        transform: rotate(-0.5deg);
+    }
+}
+
+/* Пунктирная неровная рамка */
+.dashed-messy-border {
+    position: relative;
+    border: 3px dashed rgba(44,44,44,0.3);
+    border-radius: 23px 27px 24px 26px;
+    animation: dashedBorderRotate 6s linear infinite;
+}
+
+@keyframes dashedBorderRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Рамка с завитками */
+.swirly-border {
+    position: relative;
+    border: 3px solid rgba(44,44,44,0.3);
+    border-radius: 25px;
+    padding: 15px;
+}
+
+.swirly-border::before {
+    content: '〰️';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-10deg);
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+.swirly-border::after {
+    content: '〰️';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(10deg) scaleX(-1);
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+/* ------------ Кривые линии-разделители ------------ */
+.messy-divider {
+    position: relative;
+    height: 40px;
+    margin: 30px 0;
+}
+
+.messy-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cpath d='M0,10 Q10,0 20,10 T40,10' stroke='rgba(44,44,44,0.3)' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 40px 20px;
+    transform: translateY(-50%) rotate(-1deg);
+}
+
+/* Разделитель с точками */
+.dotted-divider {
+    position: relative;
+    height: 30px;
+    margin: 25px 0;
+}
+
+.dotted-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-image:
+        radial-gradient(circle, rgba(44,44,44,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(40,167,69,0.3) 2px, transparent 2px);
+    background-size: 30px 30px, 20px 20px;
+    background-position: 0 0, 10px 0;
+    transform: translateY(-50%);
+}
+
+/* Разделитель-молния */
+.lightning-divider {
+    position: relative;
+    height: 30px;
+    margin: 30px 0;
+}
+
+.lightning-divider::before {
+    content: '⚡';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+.lightning-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 45%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(44,44,44,0.3) 50%,
+        transparent 100%
+    );
+    transform: translateY(-50%);
+}
+
+/* ------------ Эффект карандашного наброска ------------ */
+.pencil-sketch {
+    position: relative;
+    filter: contrast(1.1) brightness(0.95);
+}
+
+.pencil-sketch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(44,44,44,0.03) 2px,
+            rgba(44,44,44,0.03) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(44,44,44,0.03) 2px,
+            rgba(44,44,44,0.03) 4px
+        );
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* ------------ Кляксы и пятна ------------ */
+.ink-blot {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    opacity: 0.15;
+    pointer-events: none;
+    animation: inkBlotPulse 4s ease-in-out infinite;
+}
+
+.ink-blot::before,
+.ink-blot::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: inherit;
+}
+
+@keyframes inkBlotPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.2;
+    }
+}
+
+/* Маленькая клякса */
+.ink-blot-small {
+    width: 60px;
+    height: 60px;
+    background: rgba(44,44,44,0.3);
+}
+
+.ink-blot-small::before {
+    width: 40px;
+    height: 40px;
+    top: -15px;
+    left: 10px;
+}
+
+.ink-blot-small::after {
+    width: 35px;
+    height: 35px;
+    bottom: -10px;
+    right: 15px;
+}
+
+/* Средняя клякса */
+.ink-blot-medium {
+    width: 100px;
+    height: 100px;
+    background: rgba(40,167,69,0.25);
+}
+
+.ink-blot-medium::before {
+    width: 70px;
+    height: 70px;
+    top: -25px;
+    left: 20px;
+}
+
+.ink-blot-medium::after {
+    width: 60px;
+    height: 60px;
+    bottom: -20px;
+    right: 25px;
+}
+
+/* Большая клякса */
+.ink-blot-large {
+    width: 150px;
+    height: 150px;
+    background: rgba(32,201,151,0.2);
+}
+
+.ink-blot-large::before {
+    width: 100px;
+    height: 100px;
+    top: -40px;
+    left: 30px;
+}
+
+.ink-blot-large::after {
+    width: 90px;
+    height: 90px;
+    bottom: -35px;
+    right: 40px;
+}
+
+/* ------------ Эффект рваной бумаги ------------ */
+.torn-edge {
+    position: relative;
+    clip-path: polygon(
+        0% 0%, 100% 0%, 100% 95%,
+        98% 97%, 96% 94%, 94% 98%, 92% 95%, 90% 98%,
+        88% 94%, 86% 97%, 84% 93%, 82% 96%, 80% 92%,
+        78% 95%, 76% 91%, 74% 94%, 72% 90%, 70% 93%,
+        68% 89%, 66% 92%, 64% 88%, 62% 91%, 60% 87%,
+        58% 90%, 56% 86%, 54% 89%, 52% 85%, 50% 88%,
+        48% 84%, 46% 87%, 44% 83%, 42% 86%, 40% 82%,
+        38% 85%, 36% 81%, 34% 84%, 32% 80%, 30% 83%,
+        28% 79%, 26% 82%, 24% 78%, 22% 81%, 20% 77%,
+        18% 80%, 16% 76%, 14% 79%, 12% 75%, 10% 78%,
+        8% 74%, 6% 77%, 4% 73%, 2% 76%, 0% 72%
+    );
+}
+
+/* ------------ Пометки на полях ------------ */
+.margin-note {
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+.margin-note::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+        180deg,
+        rgba(44,44,44,0.3) 0%,
+        rgba(40,167,69,0.3) 50%,
+        rgba(44,44,44,0.3) 100%
+    );
+    border-radius: 2px;
+    transform: rotate(-1deg);
+}
+
+.margin-note::after {
+    content: '→';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-5deg);
+    font-size: 1rem;
+    color: rgba(40,167,69,0.5);
+}
+
+/* ------------ Случайные закорючки ------------ */
+.squiggle {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='30' viewBox='0 0 50 30'%3E%3Cpath d='M5,15 Q15,5 25,15 T45,15' stroke='rgba(44,44,44,0.3)' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    animation: squiggleWiggle 3s ease-in-out infinite;
+}
+
+@keyframes squiggleWiggle {
+    0%, 100% {
+        transform: translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(2px) rotate(2deg);
+    }
+    50% {
+        transform: translateX(-2px) rotate(-2deg);
+    }
+    75% {
+        transform: translateX(1px) rotate(1deg);
+    }
+}

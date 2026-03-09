@@ -1,0 +1,475 @@
+/* Анимации для Monkedd Games */
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes gentlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes titleSlide {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1) rotate(-2deg); box-shadow: 3px 3px 0px #2c2c2c; }
+    50% { transform: scale(1.05) rotate(2deg); box-shadow: 4px 4px 0px #2c2c2c; }
+}
+
+@keyframes sketch {
+    0%, 100% {
+        border-radius: 25px;
+        transform: rotate(0deg);
+    }
+    25% {
+        border-radius: 23px 27px 24px 26px;
+        transform: rotate(-0.5deg);
+    }
+    50% {
+        border-radius: 27px 23px 26px 24px;
+        transform: rotate(0.5deg);
+    }
+    75% {
+        border-radius: 24px 26px 23px 25px;
+        transform: rotate(-0.3deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* Анимация парения карточек */
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0) rotate(-0.5deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(-0.3deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(-0.7deg);
+    }
+    75% {
+        transform: translateY(-10px) rotate(-0.4deg);
+    }
+}
+
+@keyframes floatCardEven {
+    0%, 100% {
+        transform: translateY(0) rotate(0.3deg);
+    }
+    25% {
+        transform: translateY(-6px) rotate(0.5deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(0.2deg);
+    }
+    75% {
+        transform: translateY(-5px) rotate(0.6deg);
+    }
+}
+
+@keyframes floatCardThird {
+    0%, 100% {
+        transform: translateY(0) rotate(-0.4deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(-0.2deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-0.6deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(-0.3deg);
+    }
+}
+
+@keyframes floatCardFourth {
+    0%, 100% {
+        transform: translateY(0) rotate(0.5deg);
+    }
+    25% {
+        transform: translateY(-7px) rotate(0.7deg);
+    }
+    50% {
+        transform: translateY(-11px) rotate(0.3deg);
+    }
+    75% {
+        transform: translateY(-6px) rotate(0.8deg);
+    }
+}
+
+@keyframes floatCardFifth {
+    0%, 100% {
+        transform: translateY(0) rotate(-0.3deg);
+    }
+    25% {
+        transform: translateY(-9px) rotate(-0.5deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(-0.2deg);
+    }
+    75% {
+        transform: translateY(-10px) rotate(-0.6deg);
+    }
+}
+
+@keyframes floatCardSixth {
+    0%, 100% {
+        transform: translateY(0) rotate(0.4deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(0.6deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0.2deg);
+    }
+    75% {
+        transform: translateY(-7px) rotate(0.7deg);
+    }
+}
+
+@keyframes floatCardSeventh {
+    0%, 100% {
+        transform: translateY(0) rotate(-0.2deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(-0.4deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-0.1deg);
+    }
+    75% {
+        transform: translateY(-9px) rotate(-0.3deg);
+    }
+}
+
+/* Анимация покачивания из стороны в сторону */
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(0deg) translateY(0);
+    }
+    25% {
+        transform: rotate(-2deg) translateY(-5px);
+    }
+    50% {
+        transform: rotate(0deg) translateY(-8px);
+    }
+    75% {
+        transform: rotate(2deg) translateY(-5px);
+    }
+}
+
+/* Анимация плавного появления */
+@keyframes fadeInFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Анимация для изображения внутри карточки */
+@keyframes imageFloat {
+    0%, 100% {
+        transform: scale(1) rotate(0.5deg);
+    }
+    50% {
+        transform: scale(1.02) rotate(-0.5deg);
+    }
+}
+
+/* Анимация для кнопки играть */
+@keyframes buttonGlow {
+    0%, 100% {
+        box-shadow: 5px 5px 0px #2c2c2c;
+    }
+    50% {
+        box-shadow: 7px 7px 0px #20c997, 0 0 15px rgba(40, 167, 69, 0.4);
+    }
+}
+
+/* Анимация для жанра */
+@keyframes genreBob {
+    0%, 100% {
+        transform: rotate(-2deg) translateY(0);
+    }
+    50% {
+        transform: rotate(2deg) translateY(-3px);
+    }
+}
+
+/* Анимация для рейтинга */
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        opacity: 0.8;
+        transform: scale(1.1) rotate(-5deg);
+    }
+    75% {
+        opacity: 0.9;
+        transform: scale(0.95) rotate(5deg);
+    }
+}
+
+/* Анимация для декоративных элементов */
+@keyframes decorationFloat {
+    0%, 100% {
+        transform: rotate(-10deg) translateY(0);
+    }
+    50% {
+        transform: rotate(-5deg) translateY(-5px);
+    }
+}
+
+/* Фон body */
+body {
+    transition: background-position 0.3s ease;
+}
+
+/* Логотип */
+.logo {
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--light-text);
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.4);
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.logo-icon {
+    animation: bounce 2s infinite;
+    display: inline-block;
+}
+
+/* Онлайн-счётчик */
+.online-counter {
+    position: relative;
+    overflow: hidden;
+}
+
+.online-counter::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,255,136,0.1) 0%, transparent 70%);
+    animation: gentlePulse 3s ease-in-out infinite;
+}
+
+.online-number {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(0,255,136,0.5);
+}
+
+/* Кнопки хедера */
+.donate-btn,
+.about-btn,
+.idea-btn,
+.stats-btn,
+.settings-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.donate-btn::before,
+.about-btn::before,
+.idea-btn::before,
+.stats-btn::before,
+.settings-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.donate-btn:hover::before,
+.about-btn:hover::before,
+.idea-btn:hover::before,
+.stats-btn:hover::before,
+.settings-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.donate-btn:hover,
+.about-btn:hover,
+.idea-btn:hover,
+.stats-btn:hover,
+.settings-btn:hover {
+    transform: translateY(-2px) rotate(-1deg);
+}
+
+/* Пункты меню */
+.donate-item,
+.about-item,
+.stats-item {
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.donate-item::before,
+.about-item::before,
+.stats-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--gradient-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+}
+
+.donate-item:hover::before,
+.about-item:hover::before,
+.stats-item:hover::before {
+    transform: scaleY(1);
+}
+
+.donate-item:hover,
+.about-item:hover,
+.stats-item:hover {
+    transform: translateX(5px) rotate(-1deg);
+}
+
+/* Карточка игры */
+.game-card {
+    transition: all 0.4s ease;
+}
+
+.game-card:hover .game-genre {
+    animation: badgePulse 1s ease-in-out infinite;
+}
+
+.game-card:hover .game-title {
+    animation: titleSlide 0.6s ease-in-out;
+}
+
+/* Изображение игры */
+.game-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.game-image img {
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.game-card:hover .game-image img {
+    transform: scale(1.08);
+}
+
+.game-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.game-image:hover::after {
+    opacity: 1;
+}
+
+.game-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: 0.6s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.game-card:hover .game-image::before {
+    left: 100%;
+}
+
+/* Кнопка играть */
+.play-button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 7px 7px 0px #2c2c2c;
+}
+
+.play-button:active {
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 0px #2c2c2c;
+}
+
+/* Кнопка избранного */
+.favorite-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.favorite-btn:hover {
+    background: #ff4757;
+    color: white;
+    transform: scale(1.1) rotate(-10deg);
+    box-shadow: 5px 5px 0px rgba(44, 44, 44, 0.3);
+}
+
+.favorite-btn.favorited {
+    background: #ff4757;
+    color: white;
+}
+
+/* Рейтинг игры */
+.rating-stars {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.game-card:hover .rating-stars {
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.game-genre {
+    transition: all 0.2s ease;
+}

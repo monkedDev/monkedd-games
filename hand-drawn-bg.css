@@ -1,0 +1,378 @@
+/* Рисованный фон и декоративные элементы для Monkedd Games */
+
+/* ==================== ФОН САЙТА ==================== */
+body {
+    background-color: #fefefe;
+    background-image: 
+        /* Точки как на бумаге */
+        radial-gradient(circle at 15% 25%, rgba(44, 44, 44, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(44, 44, 44, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(40, 167, 69, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(32, 201, 151, 0.05) 0%, transparent 35%),
+        /* Косые линии как в тетради */
+        repeating-linear-gradient(
+            75deg,
+            transparent,
+            transparent 20px,
+            rgba(44, 44, 44, 0.04) 20px,
+            rgba(44, 44, 44, 0.04) 22px
+        ),
+        /* Вертикальные линии */
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 30px,
+            rgba(44, 44, 44, 0.03) 30px,
+            rgba(44, 44, 44, 0.03) 31px
+        );
+    background-attachment: fixed;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 200px 200px, 100px 100px;
+}
+
+/* Текстура бумаги - эффект мятой бумаги */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 1000;
+    mix-blend-mode: multiply;
+}
+
+/* Плавающие каракули на фоне */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath d='M20,40 Q50,10 80,40 T140,40' stroke='rgba(44,44,44,0.05)' fill='none' stroke-width='2'/%3E%3Ccircle cx='160' cy='80' r='5' fill='rgba(40,167,69,0.1)'/%3E%3Cpath d='M30,120 Q60,90 90,120 T150,120' stroke='rgba(32,201,151,0.05)' fill='none' stroke-width='2'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cpath d='M10,75 Q40,45 70,75 T130,75' stroke='rgba(44,44,44,0.04)' fill='none' stroke-width='1.5'/%3E%3Cpath d='M20,100 Q50,70 80,100 T140,100' stroke='rgba(40,167,69,0.04)' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='3' fill='rgba(44,44,44,0.08)'/%3E%3Ccircle cx='20' cy='80' r='2' fill='rgba(40,167,69,0.1)'/%3E%3Ccircle cx='80' cy='20' r='2.5' fill='rgba(32,201,151,0.1)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 300px 300px, 250px 250px, 150px 150px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -2;
+    animation: bgFloat 30s ease-in-out infinite;
+}
+
+@keyframes bgFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(10px, -10px) scale(1.02); }
+    50% { transform: translate(-5px, 5px) scale(0.98); }
+    75% { transform: translate(8px, 8px) scale(1.01); }
+}
+
+/* ==================== ДЕКОРАТИВНЫЕ УГОЛКИ ==================== */
+/* Уголки для карточек - добавляем через отдельные элементы */
+.scribble-corner {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+    z-index: 101;
+}
+
+.scribble-corner.top-left {
+    top: -5px;
+    left: -5px;
+    border-top: 4px solid #2c2c2c;
+    border-left: 4px solid #2c2c2c;
+    border-radius: 15px 0 0 0;
+    transform: rotate(-5deg);
+}
+
+.scribble-corner.top-right {
+    top: -5px;
+    right: -5px;
+    border-top: 4px solid #2c2c2c;
+    border-right: 4px solid #2c2c2c;
+    border-radius: 0 15px 0 0;
+    transform: rotate(5deg);
+}
+
+.scribble-corner.bottom-left {
+    bottom: -5px;
+    left: -5px;
+    border-bottom: 4px solid #2c2c2c;
+    border-left: 4px solid #2c2c2c;
+    border-radius: 0 0 0 15px;
+    transform: rotate(5deg);
+}
+
+.scribble-corner.bottom-right {
+    bottom: -5px;
+    right: -5px;
+    border-bottom: 4px solid #2c2c2c;
+    border-right: 4px solid #2c2c2c;
+    border-radius: 0 0 15px 0;
+    transform: rotate(-5deg);
+}
+
+/* ==================== КАРАКУЛИ ВОКРУГ КАРТОЧЕК ==================== */
+.game-card {
+    position: relative;
+}
+
+/* Карандаш в углу */
+.game-card::after {
+    content: '✏️';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    opacity: 0.6;
+    transform: rotate(15deg);
+    pointer-events: none;
+    z-index: 102;
+}
+
+/* Игровые иконки в game-info */
+.game-card .game-info::after {
+    content: '✨ 🎮 🎲';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1rem;
+    opacity: 0.5;
+    transform: rotate(-5deg);
+    pointer-events: none;
+    z-index: 102;
+}
+
+/* ==================== ЛИНИИ-ПОДЧЁРКИВАНИЯ ==================== */
+
+/* ==================== РИСОВАННЫЕ РАМКИ ==================== */
+
+/* ==================== ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ==================== */
+/* Звёздочки и искры */
+.sparkle {
+    position: absolute;
+    font-size: 1rem;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: sparkleAnim 2s ease-in-out infinite;
+}
+
+@keyframes sparkleAnim {
+    0%, 100% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+}
+
+/* Рисованные стрелочки */
+.arrow-doodle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+}
+
+.arrow-doodle::before {
+    content: '➜';
+    font-size: 1.5rem;
+    color: #28a745;
+    opacity: 0.5;
+    transform: rotate(-45deg);
+}
+
+/* Волнистые линии */
+.wavy-line {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background: 
+        repeating-radial-gradient(
+            circle at 10px 10px,
+            rgba(44,44,44,0.3) 0px,
+            rgba(44,44,44,0.3) 2px,
+            transparent 2px,
+            transparent 10px
+        );
+    pointer-events: none;
+}
+
+/* ==================== ЦВЕТНЫЕ ПЯТНА ==================== */
+.color-splash {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(20px);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.color-splash.green {
+    background: #28a745;
+    width: 200px;
+    height: 200px;
+}
+
+.color-splash.teal {
+    background: #20c997;
+    width: 150px;
+    height: 150px;
+}
+
+.color-splash.blue {
+    background: #1a75ff;
+    width: 180px;
+    height: 180px;
+}
+
+/* ==================== ЛИНИИ-РАЗДЕЛИТЕЛИ ==================== */
+.doodle-divider {
+    position: relative;
+    height: 30px;
+    margin: 20px 0;
+}
+
+.doodle-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            #2c2c2c 0px,
+            #2c2c2c 15px,
+            transparent 15px,
+            transparent 25px
+        );
+    transform: translateY(-50%) rotate(-1deg);
+}
+
+/* ==================== ЗАКОЮЧКИ И ЗАВИТУШКИ ==================== */
+.swirl {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(44,44,44,0.3);
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+/* ==================== ТЕКСТУРА БУМАГИ ==================== */
+.paper-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Ccircle cx='1' cy='1' r='0.5' fill='rgba(44,44,44,0.03)'/%3E%3Ccircle cx='3' cy='3' r='0.5' fill='rgba(44,44,44,0.03)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* ==================== АНИМАЦИИ ДЛЯ ФОНА ==================== */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(5deg); }
+    66% { transform: translateY(5px) rotate(-5deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* ==================== ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ ДЛЯ ХЕДЕРА ==================== */
+.header {
+    position: relative;
+}
+
+/* Рисованные линии по краям хедера */
+.header::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(44,44,44,0.1) 10px,
+            rgba(44,44,44,0.1) 20px
+        );
+    pointer-events: none;
+}
+
+/* ==================== КРУЖОЧКИ И ТОЧКИ ==================== */
+.dot-pattern {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: 
+        radial-gradient(circle, rgba(44,44,44,0.2) 2px, transparent 2px),
+        radial-gradient(circle, rgba(40,167,69,0.15) 2px, transparent 2px);
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 10px 10px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ==================== ЛИНИИ ОТ КАРАНДАША ==================== */
+.pencil-line {
+    position: absolute;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        rgba(44,44,44,0.3) 0%,
+        rgba(44,44,44,0.5) 50%,
+        rgba(44,44,44,0.3) 100%
+    );
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/* ==================== РИСОВАННЫЕ ОБЛАКА ==================== */
+.doodle-cloud {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    background: rgba(44,44,44,0.05);
+    border-radius: 50px;
+    pointer-events: none;
+    filter: blur(5px);
+}
+
+.doodle-cloud::before,
+.doodle-cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(44,44,44,0.05);
+    border-radius: 50%;
+}
+
+.doodle-cloud::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 15px;
+}
+
+.doodle-cloud::after {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    right: 15px;
+}
